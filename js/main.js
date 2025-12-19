@@ -1,13 +1,14 @@
 /**
  * FASTGLASS75 - Main JavaScript
  * Animations, interactions and functionality
+ * Version 2.0 - Enhanced animations (fade, bounce)
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all modules
     initNavbar();
     initMobileMenu();
-    initScrollReveal();
+    initScrollAnimations();
     initFAQ();
     initSmoothScroll();
     initContactForm();
@@ -20,26 +21,19 @@ function initNavbar() {
     const navbar = document.getElementById('navbar');
     if (!navbar) return;
 
-    let lastScroll = 0;
     const scrollThreshold = 100;
 
     function handleScroll() {
         const currentScroll = window.scrollY;
 
-        // Add/remove scrolled class
         if (currentScroll > scrollThreshold) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-
-        lastScroll = currentScroll;
     }
 
-    // Use passive listener for better performance
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Initial check
     handleScroll();
 }
 
@@ -52,14 +46,12 @@ function initMobileMenu() {
     
     if (!toggle || !menu) return;
 
-    // Toggle menu on button click
     toggle.addEventListener('click', function() {
         toggle.classList.toggle('active');
         menu.classList.toggle('open');
         document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
     });
 
-    // Close menu when clicking on links
     const menuLinks = menu.querySelectorAll('a');
     menuLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -69,7 +61,6 @@ function initMobileMenu() {
         });
     });
 
-    // Close menu when clicking outside
     menu.addEventListener('click', function(e) {
         if (e.target === menu) {
             toggle.classList.remove('active');
@@ -78,7 +69,6 @@ function initMobileMenu() {
         }
     });
 
-    // Close menu on escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && menu.classList.contains('open')) {
             toggle.classList.remove('active');
@@ -89,38 +79,55 @@ function initMobileMenu() {
 }
 
 /**
- * Scroll reveal animations using Intersection Observer
+ * Scroll animations using Intersection Observer
+ * Supports: fade-in, fade-in-up, fade-in-down, fade-in-left, fade-in-right,
+ *          bounce-in, bounce-in-up, scale-in, reveal
  */
-function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal');
+function initScrollAnimations() {
+    // All animation classes to observe
+    const animationClasses = [
+        'fade-in',
+        'fade-in-up',
+        'fade-in-down',
+        'fade-in-left',
+        'fade-in-right',
+        'bounce-in',
+        'bounce-in-up',
+        'scale-in',
+        'reveal'
+    ];
     
-    if (!revealElements.length) return;
+    const selector = animationClasses.map(c => '.' + c).join(', ');
+    const animatedElements = document.querySelectorAll(selector);
+    
+    if (!animatedElements.length) return;
 
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
-        // Show all elements immediately
-        revealElements.forEach(el => el.classList.add('visible'));
+        animatedElements.forEach(el => el.classList.add('visible'));
         return;
     }
 
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -60px 0px'
     };
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const animationObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Unobserve after revealing (animation happens once)
+                // Add visible class with a small delay for stagger effect
+                requestAnimationFrame(() => {
+                    entry.target.classList.add('visible');
+                });
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    animatedElements.forEach(el => animationObserver.observe(el));
 }
 
 /**
@@ -139,22 +146,18 @@ function initFAQ() {
         header.addEventListener('click', function() {
             const isOpen = item.classList.contains('open');
             
-            // Close all other items (optional: for accordion behavior)
-            // Uncomment next lines for accordion behavior
+            // Optional: Close other items (accordion behavior)
             // faqItems.forEach(otherItem => {
             //     if (otherItem !== item) {
             //         otherItem.classList.remove('open');
+            //         otherItem.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
             //     }
             // });
             
-            // Toggle current item
             item.classList.toggle('open');
-            
-            // Update ARIA attributes
             header.setAttribute('aria-expanded', !isOpen);
         });
 
-        // Add keyboard accessibility
         header.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -174,7 +177,6 @@ function initSmoothScroll() {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             
-            // Skip if just "#"
             if (href === '#') return;
             
             const target = document.querySelector(href);
@@ -185,7 +187,7 @@ function initSmoothScroll() {
                 const navbar = document.getElementById('navbar');
                 const navbarHeight = navbar ? navbar.offsetHeight : 0;
                 const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-                const offsetPosition = targetPosition - navbarHeight - 20;
+                const offsetPosition = targetPosition - navbarHeight - 24;
 
                 window.scrollTo({
                     top: offsetPosition,
@@ -204,47 +206,67 @@ function initContactForm() {
     
     if (!form) return;
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        // Show loading state
-        submitBtn.innerHTML = `
-            <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
-                <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
-            </svg>
-            Envoi en cours...
-        `;
-        submitBtn.disabled = true;
-        
-        // Simulate form submission (replace with actual API call)
-        setTimeout(() => {
-            // Success state
+    // Check if Netlify form handling is enabled
+    const isNetlify = form.hasAttribute('data-netlify');
+    
+    if (isNetlify) {
+        // Let Netlify handle the form submission
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
             submitBtn.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="20 6 9 17 4 12"/>
+                <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
+                    <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
                 </svg>
-                Demande envoyée !
+                Envoi en cours...
             `;
-            submitBtn.style.background = '#10B981';
+            submitBtn.disabled = true;
+        });
+    } else {
+        // Fallback for non-Netlify environments
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Reset form
-            form.reset();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
             
-            // Restore button after delay
+            submitBtn.innerHTML = `
+                <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
+                    <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
+                </svg>
+                Envoi en cours...
+            `;
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
             setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-                submitBtn.disabled = false;
-            }, 3000);
-            
-        }, 1500);
-    });
+                submitBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Demande envoyée !
+                `;
+                submitBtn.style.background = 'var(--color-success)';
+                submitBtn.style.boxShadow = '0 8px 32px rgba(16, 185, 129, 0.3)';
+                
+                form.reset();
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.boxShadow = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+                
+            }, 1500);
+        });
+    }
 
-    // Real-time validation feedback
+    // Real-time validation
     const inputs = form.querySelectorAll('.input-field');
     
     inputs.forEach(input => {
@@ -253,7 +275,6 @@ function initContactForm() {
         });
         
         input.addEventListener('input', function() {
-            // Remove error state on input
             this.classList.remove('error');
         });
     });
@@ -267,7 +288,6 @@ function validateField(field) {
     const type = field.type;
     const required = field.hasAttribute('required');
     
-    // Skip if not required and empty
     if (!required && !value) return true;
     
     let isValid = true;
@@ -278,7 +298,6 @@ function validateField(field) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         isValid = emailRegex.test(value);
     } else if (type === 'tel' && value) {
-        // French phone number validation (basic)
         const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
         isValid = phoneRegex.test(value.replace(/\s/g, ''));
     }
