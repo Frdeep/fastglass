@@ -369,56 +369,42 @@ function throttle(func, limit) {
 }
 
 /**
- * WhatsApp Widget
+ * WhatsApp Widget v2
  */
 function initWhatsAppWidget() {
-    const button = document.getElementById('whatsappButton');
-    const popup = document.getElementById('whatsappPopup');
-    const closeBtn = document.getElementById('whatsappClose');
+    const widget = document.getElementById('waWidget');
+    const btn = document.getElementById('waBtn');
+    const chat = document.getElementById('waChat');
     
-    if (!button || !popup) return;
+    if (!widget || !btn) return;
     
-    // Toggle popup on button click
-    button.addEventListener('click', function(e) {
+    // Toggle chat on button click
+    btn.addEventListener('click', function(e) {
         e.preventDefault();
-        popup.classList.toggle('open');
+        e.stopPropagation();
+        widget.classList.toggle('open');
     });
     
-    // Close popup
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            popup.classList.remove('open');
-        });
-    }
-    
-    // Close popup when clicking outside
+    // Close chat when clicking outside
     document.addEventListener('click', function(e) {
-        const widget = document.getElementById('whatsappWidget');
-        if (widget && !widget.contains(e.target)) {
-            popup.classList.remove('open');
+        if (widget.classList.contains('open') && !widget.contains(e.target)) {
+            widget.classList.remove('open');
         }
     });
     
     // Close on escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && popup.classList.contains('open')) {
-            popup.classList.remove('open');
+        if (e.key === 'Escape' && widget.classList.contains('open')) {
+            widget.classList.remove('open');
         }
     });
     
-    // Auto-open popup after 5 seconds (optional - can be removed)
-    setTimeout(() => {
-        if (!popup.classList.contains('open')) {
-            popup.classList.add('open');
-            
-            // Auto-close after 8 seconds if not interacted
-            setTimeout(() => {
-                popup.classList.remove('open');
-            }, 8000);
-        }
-    }, 5000);
+    // Prevent closing when clicking inside chat
+    if (chat) {
+        chat.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
 }
 
 // Add CSS for form error state and loading animation
