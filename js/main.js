@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
     initSmoothScroll();
     initContactForm();
-    initWhatsAppWidget();
 });
 
 /**
@@ -366,45 +365,6 @@ function throttle(func, limit) {
             setTimeout(() => inThrottle = false, limit);
         }
     };
-}
-
-/**
- * WhatsApp Widget v2
- */
-function initWhatsAppWidget() {
-    const widget = document.getElementById('waWidget');
-    const btn = document.getElementById('waBtn');
-    const chat = document.getElementById('waChat');
-    
-    if (!widget || !btn) return;
-    
-    // Toggle chat on button click
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        widget.classList.toggle('open');
-    });
-    
-    // Close chat when clicking outside
-    document.addEventListener('click', function(e) {
-        if (widget.classList.contains('open') && !widget.contains(e.target)) {
-            widget.classList.remove('open');
-        }
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && widget.classList.contains('open')) {
-            widget.classList.remove('open');
-        }
-    });
-    
-    // Prevent closing when clicking inside chat
-    if (chat) {
-        chat.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-    }
 }
 
 // Add CSS for form error state and loading animation
