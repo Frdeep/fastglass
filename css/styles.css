@@ -2191,66 +2191,6 @@ select.input-field {
     }
 }
 
-/* --------------------- WhatsApp Floating Button --------------------- */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 9999;
-}
-
-/* Label caché par défaut */
-.whatsapp-float-label {
-    display: none;
-}
-
-/* Bouton principal - PETIT */
-.whatsapp-float-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: #25D366;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-decoration: none;
-}
-
-.whatsapp-float-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-}
-
-.whatsapp-float-btn:active {
-    transform: scale(0.95);
-}
-
-/* Icône WhatsApp - petite */
-.whatsapp-float-btn svg {
-    width: 20px;
-    height: 20px;
-    fill: #ffffff;
-}
-
-/* Responsive - Mobile */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        bottom: 16px;
-        left: 16px;
-    }
-    
-    .whatsapp-float-btn {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .whatsapp-float-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-}
 
 /* --------------------- Utilities --------------------- */
 .text-center {
