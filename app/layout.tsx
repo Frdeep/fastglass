@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from '@/components/layout/Header'
+import FloatingNavbar from '@/components/layout/FloatingNavbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'
 import Script from 'next/script'
@@ -48,7 +48,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Header />
+        <FloatingNavbar />
         <main className="min-h-screen">
           {children}
         </main>

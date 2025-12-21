@@ -8,10 +8,10 @@ const TallyFormSection = () => {
     <section id="formulaire" className="section-padding">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
           <div className="text-center mb-12">
@@ -21,7 +21,7 @@ const TallyFormSection = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8">
+          <div className="bg-white rounded-3xl card-glow p-6 md:p-8">
             <TallyForm />
           </div>
         </motion.div>

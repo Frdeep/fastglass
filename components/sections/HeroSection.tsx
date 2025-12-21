@@ -1,21 +1,21 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, CheckCircle, Gift, Euro } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <section id="accueil" className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-white -z-10" />
 
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6 animate-pulse-slow">
               <CheckCircle className="w-5 h-5" />
@@ -32,7 +32,13 @@ const HeroSection = () => {
               Intervention rapide en 24h, 0€ à payer et recevez un cadeau jusqu'à 300€
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-4 mb-8"
+            >
               <Link href="#formulaire" className="btn-primary text-center">
                 Prendre rendez-vous
               </Link>
@@ -40,14 +46,15 @@ const HeroSection = () => {
                 <Phone className="w-5 h-5" />
                 <span>06 13 66 76 63</span>
               </a>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white rounded-xl p-4 shadow-card"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="bg-white rounded-xl p-4 card-glow"
               >
                 <div className="text-3xl font-bold text-primary mb-1">500+</div>
                 <div className="text-secondary-600 text-sm">Interventions réalisées</div>
@@ -55,9 +62,10 @@ const HeroSection = () => {
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-white rounded-xl p-4 shadow-card"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-white rounded-xl p-4 card-glow"
               >
                 <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
                 <div className="text-secondary-600 text-sm">Satisfaction client</div>
@@ -65,9 +73,10 @@ const HeroSection = () => {
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-white rounded-xl p-4 shadow-card"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="bg-white rounded-xl p-4 card-glow"
               >
                 <div className="text-3xl font-bold text-primary mb-1">24h</div>
                 <div className="text-secondary-600 text-sm">Délai d'intervention</div>
@@ -76,27 +85,26 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/-5927063639263218497_121.jpg"
+              <img
+                src="https://i.imgur.com/0m0ueaZ.jpg"
                 alt="Technicien Fastglass75 en intervention"
-                width={600}
-                height={800}
                 className="w-full h-auto"
-                priority
               />
             </div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -top-6 -left-6 bg-white rounded-2xl p-6 shadow-card-hover animate-float"
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="absolute -top-6 -left-6 bg-white rounded-2xl p-6 card-glow animate-float"
             >
               <div className="flex items-center space-x-3">
                 <div className="bg-green-100 rounded-full p-3">
@@ -111,9 +119,10 @@ const HeroSection = () => {
 
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-card-hover"
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 card-glow"
               style={{ animationDelay: '1.5s' }}
             >
               <div className="flex items-center space-x-3">

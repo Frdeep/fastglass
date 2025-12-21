@@ -21,13 +21,13 @@ const ZoneSection = () => {
   ]
 
   return (
-    <section className="section-padding">
+    <section id="zone" className="section-padding">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6">
@@ -41,11 +41,11 @@ const ZoneSection = () => {
 
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-3xl p-8 md:p-10 shadow-card border border-gray-100 mb-8"
+            className="bg-white rounded-3xl p-8 md:p-10 card-glow border border-gray-100 mb-8"
           >
             <h3 className="text-2xl font-bold text-secondary-900 mb-6 flex items-center">
               <CheckCircle className="w-6 h-6 text-primary mr-3" />
@@ -65,11 +65,11 @@ const ZoneSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white rounded-3xl p-8 md:p-10 shadow-card border border-gray-100"
+            className="bg-white rounded-3xl p-8 md:p-10 card-glow border border-gray-100"
           >
             <h3 className="text-2xl font-bold text-secondary-900 mb-6 flex items-center">
               <CheckCircle className="w-6 h-6 text-primary mr-3" />
@@ -95,9 +95,9 @@ const ZoneSection = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-center mt-8"
           >
-            <Link href="/zone-intervention" className="btn-primary inline-block">
-              Voir la carte complète
-            </Link>
+            <a href="tel:+33613667663" className="btn-primary inline-block">
+              Nous contacter
+            </a>
           </motion.div>
         </div>
       </div>

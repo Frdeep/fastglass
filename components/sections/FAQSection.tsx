@@ -35,13 +35,13 @@ const FAQSection = () => {
   ]
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section id="faq" className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
           <h2 className="section-title">Questions Fréquentes</h2>
@@ -54,15 +54,15 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               className="mb-4"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full bg-white rounded-2xl p-6 shadow-card border border-gray-100 hover:shadow-card-hover transition-all text-left"
+                className="w-full bg-white rounded-2xl p-6 card-glow border border-gray-100 transition-all text-left"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-bold text-secondary-900 pr-8">
