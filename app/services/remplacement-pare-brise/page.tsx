@@ -12,7 +12,7 @@ export default function RemplacementPareBrisePage() {
       title="Remplacement Pare-brise"
       subtitle="Service professionnel de remplacement de pare-brise à Paris et Île-de-France"
       description="Votre pare-brise est endommagé et nécessite un remplacement ? Fastglass75 vous propose un service complet avec vitrage certifié origine, intervention rapide en moins de 24h, et prise en charge directe par votre assurance. Profitez de notre offre exclusive : 0€ à payer et un cadeau jusqu'à 300€."
-      image="/images/-5927063639263218496_121.jpg"
+      image="https://img.sanishtech.com/u/7c29e7b17c01699f2b6bac784896ae99.jpg"
       benefits={[
         'Vitrage certifié équivalent origine constructeur',
         'Installation professionnelle par techniciens certifiés',

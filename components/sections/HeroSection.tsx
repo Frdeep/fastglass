@@ -93,7 +93,7 @@ const HeroSection = () => {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://i.imgur.com/0m0ueaZ.jpg"
+                src="https://img.sanishtech.com/u/7a13a528fa1213bafdde3af1766d5f27.jpg"
                 alt="Technicien Fastglass75 en intervention"
                 className="w-full h-auto"
               />

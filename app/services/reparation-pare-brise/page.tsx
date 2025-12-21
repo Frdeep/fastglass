@@ -12,7 +12,7 @@ export default function ReparationPareBrisePage() {
       title="Réparation Pare-brise"
       subtitle="Réparation rapide et économique d\'impacts et fissures"
       description="Un impact ou une petite fissure sur votre pare-brise ? La réparation est souvent possible et vous évite un remplacement coûteux. Notre technique professionnelle permet de réparer les impacts jusqu\'à 2cm de diamètre et les fissures jusqu\'à 15cm. Intervention rapide, prise en charge assurance, et résultat invisible."
-      image="/images/-5927063639263218489_121.jpg"
+      image="https://img.sanishtech.com/u/0d429c5bf6c35261dd7e8a52d284e858.jpg"
       benefits={[
         'Réparation invisible et durable',
         'Solution économique vs remplacement',

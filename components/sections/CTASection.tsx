@@ -10,7 +10,7 @@ const CTASection = () => {
     <section className="relative section-padding overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/-5927063639263218494_121.jpg"
+          src="https://img.sanishtech.com/u/0d429c5bf6c35261dd7e8a52d284e858.jpg"
           alt="Équipe Fastglass75"
           fill
           className="object-cover"

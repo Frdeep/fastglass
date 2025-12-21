@@ -12,7 +12,7 @@ export default function LunetteArrierePage() {
       title="Lunette Arrière"
       subtitle="Remplacement professionnel de lunette arrière avec dégivrage"
       description="Lunette arrière cassée ou fissurée ? Fastglass75 vous propose un remplacement complet avec raccordement du système de dégivrage. Nous utilisons des vitrages de qualité avec résistances chauffantes intégrées. Installation professionnelle garantie, prise en charge assurance, intervention rapide."
-      image="/images/-5927063639263218495_121.jpg"
+      image="https://img.sanishtech.com/u/d3b3c4502157a42e08f359275d9bf50c.jpg"
       benefits={[
         'Vitrage avec dégivrage intégré',
         'Raccordement électrique inclus',

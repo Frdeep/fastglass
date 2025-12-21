@@ -12,7 +12,7 @@ export default function VitreLateralePage() {
       title="Vitre Latérale"
       subtitle="Remplacement de vitres latérales avant et arrière"
       description="Votre vitre latérale est cassée ou fissurée ? Fastglass75 intervient rapidement pour remplacer vos vitres latérales avant et arrière. Nous disposons d\'un large stock de vitrages pour tous modèles de véhicules. Intervention rapide, prise en charge assurance, et garantie sur la pose."
-      image="/images/-5927063639263218493_121.jpg"
+      image="https://img.sanishtech.com/u/db73a465a4dea61f0931968bc5c3cc54.jpg"
       benefits={[
         'Large stock disponible tous modèles',
         'Vitrages athermiques et teintés disponibles',

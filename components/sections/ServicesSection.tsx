@@ -8,37 +8,37 @@ const ServicesSection = () => {
     {
       title: 'Remplacement Pare-brise',
       description: 'Remplacement complet avec vitrage certifié origine. Intervention rapide et garantie à vie.',
-      image: 'https://i.imgur.com/Usjh9X2.jpg',
+      image: 'https://img.sanishtech.com/u/7c29e7b17c01699f2b6bac784896ae99.jpg',
       icon: Shield,
     },
     {
       title: 'Réparation Pare-brise',
       description: 'Réparation d\'impacts et fissures. Solution rapide et économique.',
-      image: 'https://i.imgur.com/Nf99YK3.jpg',
+      image: 'https://img.sanishtech.com/u/0d429c5bf6c35261dd7e8a52d284e858.jpg',
       icon: Wrench,
     },
     {
       title: 'Vitre Latérale',
       description: 'Remplacement de vitres latérales avant et arrière. Tous modèles.',
-      image: 'https://i.imgur.com/ffTYnmn.jpg',
+      image: 'https://img.sanishtech.com/u/db73a465a4dea61f0931968bc5c3cc54.jpg',
       icon: Car,
     },
     {
       title: 'Lunette Arrière',
       description: 'Remplacement de lunette arrière avec dégivrage inclus.',
-      image: 'https://i.imgur.com/jTwZu7l.jpg',
+      image: 'https://img.sanishtech.com/u/d3b3c4502157a42e08f359275d9bf50c.jpg',
       icon: Eye,
     },
     {
       title: 'Custode',
       description: 'Remplacement de custodes fixes ou ouvrantes. Étanchéité parfaite.',
-      image: 'https://i.imgur.com/ci4NhpP.jpg',
+      image: 'https://img.sanishtech.com/u/7a13a528fa1213bafdde3af1766d5f27.jpg',
       icon: Grid,
     },
     {
       title: 'Intervention à Domicile',
       description: 'Nous venons chez vous ou au travail. Service premium inclus.',
-      image: 'https://i.imgur.com/htPOGK3.jpg',
+      image: 'https://img.sanishtech.com/u/7c29e7b17c01699f2b6bac784896ae99.jpg',
       icon: Home,
     },
   ]

@@ -12,7 +12,7 @@ export default function CustodePage() {
       title="Custode"
       subtitle="Remplacement de custodes fixes et ouvrantes"
       description="Votre custode est cassée ? Fastglass75 remplace vos custodes fixes et ouvrantes pour tous types de véhicules. Ces petites vitres latérales situées généralement à l\'arrière nécessitent une pose précise pour garantir une étanchéité parfaite. Nous intervenons rapidement avec des vitrages adaptés à votre véhicule."
-      image="/images/-5927063639263218494_121.jpg"
+      image="https://img.sanishtech.com/u/7a13a528fa1213bafdde3af1766d5f27.jpg"
       benefits={[
         'Custodes fixes et ouvrantes disponibles',
         'Étanchéité parfaite garantie',

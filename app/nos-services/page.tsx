@@ -12,31 +12,31 @@ export default function NosServicesPage() {
     {
       title: 'Remplacement Pare-brise',
       description: 'Remplacement complet de votre pare-brise avec vitrage certifié origine. Intervention rapide et garantie à vie.',
-      image: '/images/-5927063639263218496_121.jpg',
+      image: 'https://img.sanishtech.com/u/7c29e7b17c01699f2b6bac784896ae99.jpg',
       href: '/services/remplacement-pare-brise',
     },
     {
       title: 'Réparation Pare-brise',
       description: 'Réparation d\'impacts et fissures. Solution rapide et économique pour préserver votre pare-brise.',
-      image: '/images/-5927063639263218489_121.jpg',
+      image: 'https://img.sanishtech.com/u/0d429c5bf6c35261dd7e8a52d284e858.jpg',
       href: '/services/reparation-pare-brise',
     },
     {
       title: 'Vitre Latérale',
       description: 'Remplacement de vitres latérales avant et arrière. Tous modèles de véhicules.',
-      image: '/images/-5927063639263218493_121.jpg',
+      image: 'https://img.sanishtech.com/u/db73a465a4dea61f0931968bc5c3cc54.jpg',
       href: '/services/vitre-laterale',
     },
     {
       title: 'Lunette Arrière',
       description: 'Remplacement de lunette arrière avec dégivrage. Installation professionnelle garantie.',
-      image: '/images/-5927063639263218495_121.jpg',
+      image: 'https://img.sanishtech.com/u/d3b3c4502157a42e08f359275d9bf50c.jpg',
       href: '/services/lunette-arriere',
     },
     {
       title: 'Custode',
       description: 'Remplacement de custodes fixes ou ouvrantes. Étanchéité parfaite assurée.',
-      image: '/images/-5927063639263218494_121.jpg',
+      image: 'https://img.sanishtech.com/u/7a13a528fa1213bafdde3af1766d5f27.jpg',
       href: '/services/custode',
     },
   ]

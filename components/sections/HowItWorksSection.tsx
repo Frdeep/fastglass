@@ -15,7 +15,7 @@ const HowItWorksSection = () => {
       icon: Wrench,
       title: 'Intervention rapide',
       description: 'Nos techniciens certifiés interviennent chez vous ou à notre atelier en moins de 24h.',
-      image: '/images/-5927063639263218495_121.jpg',
+      image: 'https://img.sanishtech.com/u/7c29e7b17c01699f2b6bac784896ae99.jpg',
     },
     {
       icon: Gift,

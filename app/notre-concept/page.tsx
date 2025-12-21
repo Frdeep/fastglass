@@ -26,7 +26,7 @@ export default function NotreConceptPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/-5927063639263218493_121.jpg"
+                src="https://img.sanishtech.com/u/db73a465a4dea61f0931968bc5c3cc54.jpg"
                 alt="Technicien Fastglass75"
                 width={600}
                 height={800}
